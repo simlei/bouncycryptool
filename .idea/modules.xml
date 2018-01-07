@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bouncycryptool.iml" filepath="$PROJECT_DIR$/.idea/modules/bouncycryptool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bouncycryptool-build.iml" filepath="$PROJECT_DIR$/.idea/modules/bouncycryptool-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/connector.iml" filepath="$PROJECT_DIR$/.idea/modules/connector.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/connector-build.iml" filepath="$PROJECT_DIR$/.idea/modules/connector-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/crypto.iml" filepath="$PROJECT_DIR$/.idea/modules/crypto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/crypto-build.iml" filepath="$PROJECT_DIR$/.idea/modules/crypto-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/logic.iml" filepath="$PROJECT_DIR$/.idea/modules/logic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/logic-build.iml" filepath="$PROJECT_DIR$/.idea/modules/logic-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tools.iml" filepath="$PROJECT_DIR$/.idea/modules/tools.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tools-build.iml" filepath="$PROJECT_DIR$/.idea/modules/tools-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ui.iml" filepath="$PROJECT_DIR$/.idea/modules/ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ui-build.iml" filepath="$PROJECT_DIR$/.idea/modules/ui-build.iml" />
+    </modules>
+  </component>
+</project>

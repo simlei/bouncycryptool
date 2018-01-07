@@ -1,0 +1,34 @@
+(org.eclipse.equinox.common/3.8.0.v20160509-1230/org.eclipse.equinox.common-3.8.0.v20160509-1230.jar)
+(org.eclipse.jface/3.12.2.v20170113-2113/org.eclipse.jface-3.12.2.v20170113-2113.jar)
+
+(org.eclipse.osgi/3.11.3.v20170209-1843/org.eclipse.osgi-3.11.3.v20170209-1843.jar)
+(org.eclipse.swt/3.105.3.v20170228-0512/org.eclipse.swt-3.105.3.v20170228-0512.jar)
+(org.eclipse.swt.gtk.linux.x86_64/3.105.3.v20170228-0512/org.eclipse.swt.gtk.linux.x86_64-3.105.3.v201
+70228-0512.jar)
+
+osgi-manager (oder -conf?)
+  settings(OSGiManagerWithDebug() ++ Seq(
+    resolvers in OSGiConf += typeP2("Eclipse P2 update site" at "http://download.eclipse.org/eclipse/updates/4.6"),
+    libraryDependencies in OSGiConf += typeP2(OSGi.ECLIPSE_PLUGIN % "org.eclipse.swt" % "3.105.3.v20170228-0512" withSources),
+    libraryDependencies in OSGiConf += typeP2(OSGi.ECLIPSE_PLUGIN % "org.eclipse.jface" % "3.12.2.v20170113-2113" withSources)
+  )).
+
+/home/simon/workspace/.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/
+
+    org.eclipse.equinox.common
+        org.eclipse.equinox.common_3.8.0.v20160509-1230.jar
+        org.eclipse.equinox.common.source_3.8.0.v20160509-1230.jar
+    org.eclipse.osgi
+        org.eclipse.osgi_3.11.3.v20170209-1843.jar
+
+    org.eclipse.swt
+        org.eclipse.swt_3.105.3.v20170228-0512.jar
+        org.eclipse.swt.gtk.linux.x86_64_3.105.3.v20170228-0512.jar
+        org.eclipse.swt.gtk.linux.x86_64.source_3.105.3.v20170228-0512.jar
+    org.eclipse.jface
+        org.eclipse.jface_3.12.2.v20170113-2113.jar
+        org.eclipse.jface.source_3.12.2.v20170113-2113.jar
+
+    org.eclipse.jface.text
+        org.eclipse.jface.text_3.11.2.v20170220-1911.jar
+        org.eclipse.jface.text.source_3.11.2.v20170220-1911.jar

@@ -1,0 +1,24 @@
+
+--------------------------------------------------
+Welcome to the JCrypTool project / build console!
+--------------------------------------------------
+
+- Try evaluating pure Scala code (at the basic level it is like Java)
+    e.g. scala> 4+4
+         scala> println("Helloworld!")
+- Try working with the JCrypTool model:
+    e.g. scala> jct.core.dir
+
+- Try building JCrypTool (like a weekly build)
+    e.g. scala> jct.core.api.buildJCTProduct(jct.core.dir.parentFile / "myWeeklyBuild")
+                (the '/' is perfectly valid Scala code in this context for denoting subfolders)
+
+At any point, press the TAB key to see auto-completions.
+Online help: https://github.com/simlei/bouncycryptool/
+
+To quit the console, type 
+scala> :q<Enter>
+
+Have fun!
+
+scala>
