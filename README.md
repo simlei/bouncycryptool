@@ -22,8 +22,8 @@ it is itself a Scala interpreter which can leverage the code in the project to a
 powerful console shell. Its main business is to build the various parts that have to play together despite various challenges
 (Eclipse RCP Target platform, Maven and SBT interworkings), with the simplicity of calling a method in the shell.
 
-Sadly, not everything therdocumentation is still very scarce. This will be remedied soon. In the meantime, here is a getting-started to
-this console shell and JCrypTool. Be advised that, after the prerequisites are installed, it will take a while to automatically fetch
+Sadly, structured documentation is still very scarce. This will be remedied soon. In the meantime, this document provides a getting-started-guide to
+the BouncyCrypTool console shell and with it, JCrypTool (You can build JCrypTool with this console shell, after all, without reading more than this document). Be advised that, after the prerequisites are installed, it will take a while to automatically fetch
 all required components. Once this has been done, subsequent invocations of the console will be much faster.
 
 ## BouncyCrypTool Build shell - prerequisites
@@ -149,7 +149,7 @@ Those long identifiers above are only for educational purpose. As jct.help will 
 there are lots of shortcuts to the projects and APIs to not be required to type all that much.
 
 By the way, the web address [http://simlei.github.io/jcryptool-p2/](http://simlei.github.io/jcryptool-p2/)
-can actually be visited. It contains a snapshot of the JCT p2 update page. 
+from above can actually be visited. It contains a snapshot of the JCT p2 update page. 
 This provisory github address will be moved to a JCT-internal location sooner or later, though.
 
 There is so much more to talk about, how this stuff works, the design descisions behind it, shortcomings, strengths etc.
