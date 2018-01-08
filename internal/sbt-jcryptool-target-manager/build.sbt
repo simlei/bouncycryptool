@@ -15,4 +15,5 @@ publishMavenStyle := false
 
 // parent plugins:
 
-val jctTargetPlugin = ProjectRef(file("./../sbt-jcryptool-target-manager"), "sbt-jcryptool-target-manager")
+val osgiPlugin = ProjectRef(file("./sbt-osgi-manager"), "sbt-osgi-manager")
+dependsOn(osgiPlugin)

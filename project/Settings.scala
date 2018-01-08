@@ -1,5 +1,6 @@
 import sbt._
 import sbt.Keys._
+import org.jcryptool.manager.JCrypToolManager.autoImport._
 
 object Settings {
 
@@ -23,8 +24,9 @@ object Settings {
 
   lazy val connectorSettings: Seq[Setting[_]] = projectsSettings ++ Seq(
     name := "bouncycryptool.connector",
-    libraryDependencies ++= Dependencies.connectorDependencies
-  )// ++ org.jcryptool.osgi.dependencies.libDependencySeqSettings(Dependencies.connectorP2Dependencies)
+    libraryDependencies ++= Dependencies.connectorDependencies,
+    libraryDependencies += bctTargetPlatformDependency.value
+  )
 
   lazy val cryptoSettings: Seq[Setting[_]] = projectsSettings ++ Seq(
     name := "bouncycryptool.crypto",
@@ -32,7 +34,8 @@ object Settings {
 
   lazy val uiSettings: Seq[Setting[_]] = projectsSettings ++ Seq(
     name := "simlei.ui",
-    libraryDependencies ++= Dependencies.uiDependencies
+    libraryDependencies ++= Dependencies.uiDependencies,
+    libraryDependencies += bctTargetPlatformDependency.value
   )
 
   lazy val logicSettings: Seq[Setting[_]] = projectsSettings ++ Seq(

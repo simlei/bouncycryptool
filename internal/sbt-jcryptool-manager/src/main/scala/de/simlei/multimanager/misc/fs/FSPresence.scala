@@ -12,7 +12,7 @@ trait FSPresence { self =>
   def asOption: Option[self.type] = validate match {case Pass => Some(this); case _ => None}
   def validatedOrBail: self.type = validate match {
     case Pass => this;
-    case Error(errs) => sys.error(Utils.makeExceptionMessage(s"Project '$this' is not valid. You have probably not downloaded everything correctly. Those were the problematic files: ", errs.toSeq.map(pair => s"${pair._1} -> '${pair._2}' not valid")))
+    case Error(errs) => sys.error(Utils.makeExceptionMessage(s"'$this' is not valid. You have probably not downloaded or specified everything correctly. Those were the problematic files: ", errs.toSeq.map(pair => s"${pair._1} -> 'Predicate ${pair._2}' failed")))
   }
   def validate: PassOrError // either Pass[T] or Fail(Map[FSPresence[_], String])
 }
@@ -35,7 +35,7 @@ trait FSEnsemble extends FSPresence {
 trait FSEnsembleDir extends FSEnsemble with FSHasRootFile {
   def dir: File
   override final def file = dir
-  override def fsEntries: Seq[FSPresence] = Seq(DirPresence(dir))
+  override def fsEntries: Seq[FSPresence] = super.fsEntries :+ DirPresence(dir)
 }
 
 trait FSFile extends FSJust {

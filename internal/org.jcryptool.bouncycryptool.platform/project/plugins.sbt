@@ -8,7 +8,6 @@
 //)
 
 val jctTargetPlugin = ProjectRef(file("./../../sbt-jcryptool-target-manager"), "sbt-jcryptool-target-manager")
-
 lazy val root = (project in file(".")) dependsOn jctTargetPlugin
 addSbtPlugin("org.jcryptool" % "sbt-jcryptool-target-manager" % "0.1.1-SNAPSHOT")
 

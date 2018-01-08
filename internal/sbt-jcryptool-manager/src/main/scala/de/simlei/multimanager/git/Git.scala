@@ -48,7 +48,7 @@ import scala.collection.GenTraversableOnce
 //      if(top == bottom) {
 //        //see obove
 //      } else {
-//        if(bottom.repoDir == file) {
+//        if(bottom.p2Dir == file) {
 //          Some(GitSubmoduleRepo(top, bottom))
 //        } else {
 //          Some(GitManagedFile(file, GitSubmoduleRepo(top, bottom)))
@@ -66,9 +66,9 @@ import scala.collection.GenTraversableOnce
 
   case class GitManagedFile(subject: File, environment: GitEnvironment) extends GitRelation
 //  case class GitSubmoduleRepo(repo: GitRepo, rootRepo: GitRepo) extends GitEnvironment with GitRelation {
-//    override def repoDir = repo.repoDir
+//    override def p2Dir = repo.p2Dir
 //    override val environment: GitRepo = rootRepo
-//    override val subject: File = repo.repoDir
+//    override val subject: File = repo.p2Dir
 //
-//    def pathFromRootOf(file: File): Option[String] = Path.relativeTo(rootRepo.repoDir).apply(file)
+//    def pathFromRootOf(file: File): Option[String] = Path.relativeTo(rootRepo.p2Dir).apply(file)
 //  }

@@ -6,6 +6,7 @@ trait ConnectorJCTPluginAPI {
 
 }
 
-trait ConnectorJCTPluginAPIImpl extends ConnectorJCTPluginAPI { self: ScalaToJCTConnectorPlugin =>
+case class ConnectorJCTPluginAPIImpl(bctPluginProject: ScalaToJCTConnectorPlugin) extends ConnectorJCTPluginAPI {
+  val proj: ScalaToJCTConnectorPlugin = bctPluginProject
 
 }

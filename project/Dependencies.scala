@@ -102,14 +102,12 @@ object Dependencies {
 //      "com.lihaoyi" %% "scalarx" % version.liRx
     )
 
-    val jct_platform = "org.jcryptool" %% "bouncycryptool-platform" % "1.0.0-SNAPSHOT" //TODO: weekend: externalize into plugin
-
   }
 
   import library._
 
-  val connectorDependencies: Seq[ModuleID] = testlibs ++ helpers ++ fctHelpers ++ reactiveAndUI :+ jct_platform
-  val uiDependencies: Seq[ModuleID] = testlibs ++ helpers ++ fctHelpers ++ ammonite ++ reactiveAndUI ++ optics :+ jct_platform
+  val connectorDependencies: Seq[ModuleID] = testlibs ++ helpers ++ fctHelpers ++ reactiveAndUI
+  val uiDependencies: Seq[ModuleID] = testlibs ++ helpers ++ fctHelpers ++ ammonite ++ reactiveAndUI ++ optics
   val logicDependencies: Seq[ModuleID] = testlibs ++ helpers ++ fctHelpers ++ optics
   val cryptoDependencies: Seq[ModuleID] = testlibs ++ helpers ++ fctHelpers ++ bouncycastle
   val toolsDependencies: Seq[ModuleID] = testlibs ++ helpers ++ fctHelpers ++ reactiveAndUI ++ optics ++ ammonite

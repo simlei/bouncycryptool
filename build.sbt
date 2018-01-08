@@ -38,4 +38,3 @@ lazy val `bouncycryptool` = (project in file("."))
   .dependsOn(logic, crypto, ui, connector, tools)
   .aggregate(logic, crypto, ui, connector, tools)
   .enablePlugins(JCrypToolManager)
-

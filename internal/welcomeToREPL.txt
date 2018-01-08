@@ -1,7 +1,7 @@
 
---------------------------------------------------
-Welcome to the JCrypTool project / build console!
---------------------------------------------------
+=========================================================
+=   Welcome to the JCrypTool project / build console!   =
+=========================================================
 
 - Try evaluating pure Scala code (at the basic level it is like Java)
     e.g. scala> 4+4
@@ -16,9 +16,6 @@ Welcome to the JCrypTool project / build console!
 At any point, press the TAB key to see auto-completions.
 Online help: https://github.com/simlei/bouncycryptool/
 
-To quit the console, type 
-scala> :q<Enter>
+To quit the console, use the "exit" command.
 
 Have fun!
-
-scala>
