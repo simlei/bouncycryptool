@@ -66,20 +66,24 @@ case class JCTCoreTychoBuildAPIImpl(coreRepoProject: JCTCoreRepo) extends JCTCor
       if(targetDir != defaultDirectory && targetDir.exists()) {
         sys.error(Utils.makeExceptionMessage(s"target directory ($targetDir) may not yet exist"))
       }
-//      val result = proj.projects.releng.api_mvn.call(Seq("clean", "package"))
-//      if(result.isFailure) {
-//        println("Maybe you have compilation errors in your JCT core/crypto code, or your RAM is not sufficient (4GB). Please mail me or open an issue!")
-//      }
+      val result = proj.projects.releng.api_mvn.call(Seq("clean", "package"))
+      if(result.isFailure) {
+        println("Error: Maven build failed. Maybe Maven is not on the system path? Other reasons: Errors in your JCT core/crypto code, or your RAM is not sufficient (4GB for the first run!). Please mail me or open an issue!")
+        result.get
+      }
       val built = JCTBuiltProduct(outputs.default_build_dir)
-      println("Successfully built the JCT product!")
+      var finished: JCTBuiltProduct = null //TODO: >:(
+
       if(targetDir != defaultDirectory) {
         println(s"Transferring the JCT product to ${targetDir}")
         IO.createDirectory(targetDir)
         IO.copyDirectory(built.dir, targetDir)
-        JCTBuiltProduct(targetDir)
+        finished = JCTBuiltProduct(targetDir)
       } else {
-        built
+        finished = built
       }
+      println("Successfully built the JCT product! Location: " + finished.dir.getAbsolutePath)
+      finished
     }
     override def defaultDirectory = outputs.default_build_dir
   }

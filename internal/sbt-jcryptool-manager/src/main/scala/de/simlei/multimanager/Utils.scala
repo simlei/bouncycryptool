@@ -36,6 +36,14 @@ import sbt._
   * @author Simon Leischnig
   */
 object Utils {
+  def winPanderProcess(args: Seq[String]): Seq[String] = {
+    val os = sys.props("os.name").toLowerCase
+    os match {
+      case x if x contains "windows" => Seq("cmd", "/C") ++ args
+      case _ => args
+    }
+  }
+
 
   private[this] val exceptionSep = "----------------"
 

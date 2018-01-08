@@ -93,12 +93,12 @@ case class TargetplatformToMavenAPIImpl(targetPlatformProject: BouncyCryptoolRep
   override def onLocalBuild: LocalSrcApi = new LocalSrcApi {
     override val resolveAndPublish = new LocalResolveCmd {
       override def defaultValue: sbt.File = defaults.localP2Repository
-      override def argToCmdArg(arg: sbt.File): String = DirPresence(arg).validatedOrBail.getAbsolutePath
+      override def argToCmdArg(arg: sbt.File): String = arg.getAbsolutePath
       override def cmdExecutor(cmdString: String): Unit = runTargetPlatformProjectCmd(cmdString)
     }
     override val testResolve: LocalTestCmd = new LocalTestCmd {
       override def defaultValue: sbt.File = defaults.localP2Repository
-      override def argToCmdArg(arg: sbt.File): String = DirPresence(arg).validatedOrBail.getAbsolutePath
+      override def argToCmdArg(arg: sbt.File): String = arg.getAbsolutePath //TODO: reinstate DirPresence(arg).validatedOrBail.getAbsolutePath
       override def cmdExecutor(cmdString: String): Unit = runTargetPlatformProjectCmd(cmdString)
     }
   }

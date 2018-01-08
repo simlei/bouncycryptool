@@ -1,5 +1,6 @@
 package de.simlei.multimanager.projects
 
+import de.simlei.multimanager.Utils
 import de.simlei.multimanager.misc.fs.{DirPresence, FSPresence, FilePresence}
 import de.simlei.multimanager.git.{GitEnvironment, GitRepo}
 import de.simlei.multimanager.misc.fs.{DirPresence, FilePresence}
@@ -22,7 +23,7 @@ package object flavor {
       def call(cmds: Seq[String]): Try[Unit] = Try {
         //  IO.delete(proj2File / "project" / "target" :: proj2File / "project" / "project" / "target" :: Nil)
         println(s"running command 'mvn ${cmds.mkString(" ")}' on project $proj")
-        val myProcess = Process("mvn" +: cmds, proj.dir)
+        val myProcess = Process(Utils.winPanderProcess("mvn" +: cmds), proj.dir)
         if(myProcess.! != 0) {
           sys.error(s"command on project $proj> 'mvn ${cmds.mkString(" ")}' did not succeed")
         } else {
@@ -64,7 +65,7 @@ package object flavor {
         //  IO.delete(proj2File / "project" / "target" :: proj2File / "project" / "project" / "target" :: Nil)
         val cmdToBeRun = quoteIfNecessary(remoteCmd)
         println(s"running command '$cmdToBeRun' on project $proj")
-        val myProcess = Process("sbt" :: s"--${logLevel.toString}" :: cmdToBeRun :: Nil, proj.dir)
+        val myProcess = Process(Utils.winPanderProcess("sbt" :: s"--${logLevel.toString}" :: cmdToBeRun :: Nil), proj.dir)
 //        val process = myProcess.run(true)
 //        if(process.exitValue() != 0) {
         if(myProcess.! != 0) {
