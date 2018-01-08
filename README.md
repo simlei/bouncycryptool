@@ -4,7 +4,7 @@ What is it, and what does it want to provide?
  - Build and project management support for JCrypTool
      * that provides build and project management support via a specialized console
      * where all processes around JCrypTool can be scripted completely platform-independent
- - Home for the integration of the BouncyCastle cryptographic library intop JCrypTool
+ - Home for the integration of the BouncyCastle cryptographic library into JCrypTool
      * modelling the cryptographic routines very thoroughly
      * automatic generation of various of the command-line and the graphical user interface
      * ... in Scala
@@ -65,7 +65,8 @@ This should take a while if you had never installed sbt before -- it does a lot 
 In case everything worked, you should see, after a while, a welcome banner, and a "scala > " prompt.
 For some operating systems, the prompt is not directly visible; if you suspect that is the case, just type a blank. 
 
-If you see something like this, it works: 
+If you see something like this, it works, and you can potentially say goodbye to any shell scripts, 
+third-party program routines and everything, the BouncyCrypTool shell can take care of all that in the future! (With just a little bit of coding required, and it is fun coding since it is Scala :) )
 
 ```
 
@@ -160,4 +161,11 @@ sea of context objects which are picked up dynamically, rather than polluting th
 member to any of the objects in the console, one needs only to add another entry in the ExternalHelp.scala file. We see such extensibility
 as one of the reasons to go for Scala in the integration of the bouncycryptool library.
 
-(more content later, and more structure) 
+## Outlook for the console:
+
+ * First scala-based GUI code in JCrypTool (with the Target platform extraction automation already in place now, we're almost there)
+ * Templates for subprojects from the console! sbt includes [giter8](http://www.foundweekends.org/giter8/), a powerful templating system made for programming projects. 
+ Actually, a very easy goal, but not of high priority.
+ * More automation by request
+ 
+Please tell me what you think and mail me / open up issues for any bugs!
