@@ -70,7 +70,7 @@ case class BouncyCryptoolRepo(dir: File, jctLayout: JCTLayout) extends JCTMainPr
       override def projectName: String = "sbt-jcryptool-target-manager"
     }
     object jctPlatformExtractor extends BCTSubProject {
-      val api_jctplatform: TargetplatformToMavenAPI = TargetplatformToMavenAPIImpl(this)
+      val api: TargetplatformToMavenAPI = TargetplatformToMavenAPIImpl(this)
       object bct_api_sbt_internal {
         def dependency: ModuleID = "org.jcryptool" %% "bouncycryptool-platform" % "1.0.0-SNAPSHOT" classifier("assembly")
       }
@@ -133,7 +133,7 @@ case class JCTLayout(bouncyCrypToolHome: File) extends FSEnsemble {
 
   }
 
-  val api_general: JCT_API = JCT_API_Implementation(this)
+  val api: JCT_API = JCT_API_Implementation(this)
 }
 
 

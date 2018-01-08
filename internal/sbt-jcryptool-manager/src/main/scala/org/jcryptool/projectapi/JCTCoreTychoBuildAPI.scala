@@ -3,7 +3,7 @@ package org.jcryptool.projectapi
 import de.simlei.multimanager.Utils
 import de.simlei.multimanager.misc.fs.{DirPresence, FSEnsembleDir, FSPresence}
 import de.simlei.multimanager.misc.fs._
-import org.jcryptool.projectapi.APIModel.{API_Command, Arg, Signature}
+import org.jcryptool.projectapi.APIModel.{API_Command, API_Spec, Arg, Signature}
 import org.jcryptool.structure._
 import org.jcryptool.structure.p2.LocalUpdateSite
 import sbt._
@@ -12,8 +12,11 @@ import scala.sys.process._
 import scala.sys.process.Process
 import scala.util.Try
 
-trait JCTCoreTychoBuildAPI {
+trait JCTCoreTychoBuildAPI extends API_Spec {
   import JCTCoreTychoBuildAPI._
+
+  override def allCommands = Seq("buildJCT"->buildJCT)
+  override def allSubAPIs = Seq()
 
   val outputs: TychoOutputs
   def buildJCT: LocalP2BuildCmd
@@ -63,10 +66,10 @@ case class JCTCoreTychoBuildAPIImpl(coreRepoProject: JCTCoreRepo) extends JCTCor
       if(targetDir != defaultDirectory && targetDir.exists()) {
         sys.error(Utils.makeExceptionMessage(s"target directory ($targetDir) may not yet exist"))
       }
-      val result = proj.projects.releng.api_mvn.call(Seq("clean", "package"))
-      if(result.isFailure) {
-        println("Maybe you have compilation errors in your JCT core/crypto code, or your RAM is not sufficient (4GB). Please mail me or open an issue!")
-      }
+//      val result = proj.projects.releng.api_mvn.call(Seq("clean", "package"))
+//      if(result.isFailure) {
+//        println("Maybe you have compilation errors in your JCT core/crypto code, or your RAM is not sufficient (4GB). Please mail me or open an issue!")
+//      }
       val built = JCTBuiltProduct(outputs.default_build_dir)
       println("Successfully built the JCT product!")
       if(targetDir != defaultDirectory) {

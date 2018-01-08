@@ -1,8 +1,10 @@
 package org.jcryptool.consolehelp
 
+import de.simlei.multimanager.ConsoleProjectUtils
 import org.jcryptool.projectapi.APIModel.{API_Command, helpAbstractions}
 import org.jcryptool.projectapi.{JCTCoreTychoBuildAPI, JCT_API, TargetplatformToMavenAPI}
 import org.jcryptool.structure.JCTLayout
+import sbt.io.IO
 
 // ---------- INFRASTRUCTURE CODE PART ------------
 
@@ -78,11 +80,15 @@ object ExternalHelp {
       |them their own APIs :)
       |
       |The main point for useful automations is supposed to be "jct.api". It has a ".help" member, check it out!
-    """.stripMargin.stripLineEnd
+      |
+      |As a last point, here are some shortcuts defined for you to make things faster and help you understand
+      |the structure of this console project a bit better. You can use either the identifiers on the left or on the right,
+      |the result is identical.
+    """.stripMargin + "\n" + ConsoleProjectUtils.printImportedVals
   )
 
   // This represents the help for the target platform commands
-  // (in the console, on jct.projects.bouncycryptool.projects.jctPlatformExtractor.api_jctplatform)
+  // (in the console, on jct.projects.bouncycryptool.projects.jctPlatformExtractor.api)
   implicit def targetplatformLocalTest(localPublishPlatformCmd: TargetplatformToMavenAPI.LocalResolveCmd) =
     helpAbstractions.consoleCmdHelp(
       localPublishPlatformCmd,
@@ -139,26 +145,55 @@ object ExternalHelp {
         |Please also note, that you need ca. 3.5 GB RAM if this is the first time you run it.
 This may fail if you don't have an active internet connection. Also, the web-hosted target platform may
         |have outdated code, not reflecting changes you may have made locally. If that is a problem, you may use
-        |the commands in the sister API, "onLocalBuild". Alternatively, look into the central API help, jct.api.help, for more information.        |This automation is used in the central jct API ("jct.api") for working together with the BouncyCrypTool target platform extraction routines.
+        |the commands in the sister API, "onLocalBuild". Alternatively, look into the central API help, jct.api.help, for more information.
+        |This automation is used in the central jct API ("jct.api") for working together with the BouncyCrypTool target platform extraction routines.
+      """.stripMargin.stripLineEnd
+    )
+
+  implicit def buildResolveAndPublishJCT(localPublishPlatformCmd: JCT_API.BuildAndResolveToBouncyCryptoolCmd) =
+    helpAbstractions.consoleCmdHelp(
+      localPublishPlatformCmd,
+      "Builds the JCrypTool product and its P2 update site and returns the Product descriptor object",
+
+      """This command sequentially executes:
+        |  1) building JCrypTool from source with Maven/Tycho
+        |  2) Extracting these binaries from that product with a specialized sbt plugin (jct.projects.bouncycryptool.projects.jctPlatformExtractor)
+        |  3) Publishing those binaries in JAR format to a local maven repository.
+        |
+        |This is kind of a replacement for the 'resolve target platform' step inside the Eclipse IDE; it is necessary for
+        |the bouncycryptool project, as it builds upon Scala (you live in a Scala world inside this console!), which does
+        |not work very well with Eclipse repositories, so it needs help. Please refer to the methods in the sub-APIs for more information.
       """.stripMargin.stripLineEnd
     )
 
   implicit def targetplatformLocalApi(localSrcApi: TargetplatformToMavenAPI.subApis.LocalSrcApi) =
-    Help(localSrcApi, "Methods to resolve the binaries of JCT/core and JCT/crypto from the hard drive state into Maven/Ivy so Scala/SBT and the BouncyCryptool can use them.")
+    helpAbstractions.apiHelp(localSrcApi,
+      "sub-API of the target platform to Maven/Bouncycryptool extractor, working on a web-hosted p2 repository.",
+      "Methods to resolve the binaries of JCT/core and JCT/crypto from the hard drive state into Maven/Ivy so Scala/SBT and the BouncyCryptool can use them."
+    )
 
   implicit def targetplatformWebApi(webSrcApi: TargetplatformToMavenAPI.subApis.WebSrcApi) =
-    Help(webSrcApi, "Methods to resolve the binaries of JCT/core and JCT/crypto from a web snapshot into Maven/Ivy so Scala/SBT and the BouncyCryptool can use them.")
+    helpAbstractions.apiHelp(webSrcApi,
+      "sub-API of the target platform to Maven/Bouncycryptool extractor, working on a locally-built p2 repository",
+      "Methods to resolve the binaries of JCT/core and JCT/crypto from a web snapshot into Maven/Ivy so Scala/SBT and the BouncyCryptool can use them."
+    )
 
   implicit def targetplatformApi(tpApi: TargetplatformToMavenAPI) =
-    Help(tpApi, "Methods to resolve the binaries of JCT/core and JCT/crypto into Maven/Ivy so Scala/SBT and the BouncyCryptool can use them.")
+    helpAbstractions.apiHelp(tpApi,
+      "API of the target platform to Maven/Bouncycryptool extractor",
+      "Methods to resolve the binaries of JCT/core and JCT/crypto into Maven/Ivy so Scala/SBT and the BouncyCryptool can use them."
+    )
 
   implicit def buildApi(mvnTychoApi: JCTCoreTychoBuildAPI) =
-    Help(mvnTychoApi, "Build JCT to the default directory, or to one of your liking. Make your own weekly build!")
+    helpAbstractions.apiHelp(mvnTychoApi,
+    "API for the JCT product build, in jct.projects.core",
+      "Build JCT to the default directory, or to one of your liking. Make your own weekly build!"
+    )
 
   implicit def jctApi(api: JCT_API) =
-    Help(api,
-      """API of the root jct structure object.
-        |This is supposed to be the gathering point for many automations.
+    helpAbstractions.apiHelp(api,
+      "API of the root jct structure object.",
+      """This is supposed to be the gathering point for many automations.
         |
         |Currently, it has one: 'buildResolveAndPublish', automating the following steps:
         |  1) building JCrypTool from source with Maven/Tycho
@@ -166,12 +201,12 @@ This may fail if you don't have an active internet connection. Also, the web-hos
         |  3) Publishing those binaries in JAR format to a local maven repository.
         |
         |This is kind of a replacement for the 'resolve target platform' step inside the Eclipse IDE; it is necessary for
-        |The bouncycryptool project, as it builds upon Scala (you live in a Scala world inside this console!), which does
+        |the bouncycryptool project, as it builds upon Scala (you live in a Scala world inside this console!), which does
         |not work very well with Eclipse repositories, so it needs help.
         |Also, the APIs of the subprojects that are needed are "pulled up" for convenience, so you can access them directly.
         |These are the equivalent API paths deeper down the project structure vs. the pulled up aliases:
         |   jct.api.api_core_build         <-> jct.projects.core.api_build
-        |   jct.api.api_platformExtractor  <-> jctLayout.projects.bouncycryptool.projects.jctPlatformExtractor.api_jctplatform
+        |   jct.api.api_platformExtractor  <-> jctLayout.projects.bouncycryptool.projects.jctPlatformExtractor.api
         |
         |In a more broad sense, this API and this console in general stands for unlimited possibilities w.r.t. automation
         |and JCrypTool. You can readily use any code of the bouncycryptool project here, and write your own. This console knows

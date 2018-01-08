@@ -1,5 +1,6 @@
 package de.simlei.multimanager
 
+import org.jcryptool.manager.JCrypToolManager.valsForConsole
 import org.jcryptool.structure.JCTLayout
 import sbt._
 import sbt.Keys._
@@ -11,6 +12,14 @@ object ConsoleProjectUtils {
 
   )
 
+  def printImportedVals: String = {
+    def expandStr(str: String, i: Int) = str + " "*i
+    val maxW = valsForConsole.map(_._1).foldLeft(0)((max: Int, s: String) => if(s.size > max) s.size else max)
+
+    valsForConsole.drop(1).map{ case (now: String, normally: String) =>
+      s"  ${expandStr(now, maxW - now.size)}  <--is normally-- $normally"
+    }.mkString("\n")
+  }
 
   def spinupMessageCmd(welcomeBannerIdentifier: String, spinupDurationMillis: Int) =
     s"""
@@ -22,19 +31,19 @@ object ConsoleProjectUtils {
       |        Thread.sleep(interval)
       |        print($welcomeBannerIdentifier + "\\n\\nscala> ")
       |      }
-    """.stripMargin
+    """.stripMargin.stripLineEnd
 
-  def valDefs(vals: Map[String, String]) = {
+  def valDefs(vals: Seq[(String, String)]) = {
     vals.map{ case (valId, assignedId) =>
-      s"val $valId = $assignedId;"
-    }.mkString("", ";\n", "\n")
+      s"val $valId = $assignedId"
+    }.mkString("", "\n", "\n")
   }
 
   def initialCommands(initBannerIdentifier: String,
                       welcomeBannerIdentifier: String,
-                      valsForConsole: Map[String, String],
+                      valsForConsole: Seq[(String, String)],
                       spinupMillis: Int): String = {
-    valDefs(valsForConsole) + s"""
+    val init = valDefs(valsForConsole) + s"""
        |println($initBannerIdentifier)
        |${spinupMessageCmd(welcomeBannerIdentifier, spinupMillis)}
        |jline.TerminalFactory.get.init
@@ -44,6 +53,7 @@ object ConsoleProjectUtils {
        |}
        |import org.jcryptool.consolehelp.ExternalHelp._
        |""".stripMargin
+    init
   }
 
 //  def jlineWorkarounds = Def.settings(

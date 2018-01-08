@@ -6,9 +6,12 @@ import org.jcryptool.projectapi.APIModel._
 import org.jcryptool.structure.BouncyCryptoolRepo
 import sbt._
 
-trait TargetplatformToMavenAPI {
+trait TargetplatformToMavenAPI extends API_Spec{
   import TargetplatformToMavenAPI._
   import subApis._
+
+  override def allCommands = Seq()
+  override def allSubAPIs = Seq("onLocalBuild" -> onLocalBuild, "onWebHostedBuild" -> onWebHostedBuild)
 
   def defaults: TargetplatformDefaults
   def onLocalBuild: LocalSrcApi
@@ -23,12 +26,18 @@ object TargetplatformToMavenAPI {
       val localP2Repository: File
     }
 
-    trait LocalSrcApi {
+    trait LocalSrcApi extends API_Spec {
+      override def allCommands = Seq("testResolve"->testResolve, "resolveAndPublish"->resolveAndPublish)
+      override def allSubAPIs = Seq()
+
       val testResolve: LocalTestCmd
       val resolveAndPublish: LocalResolveCmd
     }
 
-    trait WebSrcApi {
+    trait WebSrcApi extends API_Spec {
+      override def allCommands = Seq("testResolve"->testResolve, "resolveAndPublish"->resolveAndPublish)
+      override def allSubAPIs = Seq()
+
       val testResolve: WebTestCmd
       val resolveAndPublish: WebResolveCmd
     }

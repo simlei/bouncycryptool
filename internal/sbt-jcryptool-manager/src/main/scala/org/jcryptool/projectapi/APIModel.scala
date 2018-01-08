@@ -4,8 +4,13 @@ import org.jcryptool.consolehelp.Help
 
 object APIModel {
 
+  trait API_Spec {
+    def allCommands: Seq[(String, API_Command)]
+    def allSubAPIs: Seq[(String, API_Spec)]
+  }
+
   trait SignatureSpec{def cmdName: String; def args: Seq[ArgSpec];
-    override def toString: String = s"cmdName(${args.mkString(", ")})"
+    override def toString: String = s"$cmdName(${args.mkString(", ")})"
   }
   case class Signature(cmdName: String, args: Seq[ArgSpec]) extends SignatureSpec
   object Signature {
@@ -14,7 +19,7 @@ object APIModel {
 
   trait ArgSpec{def name: String; def tpe: String;
     def description: String = name
-    final def nameTypeString: String = s"$name: $tpe"
+    override def toString: String = s"$name: $tpe"
   }
   case class Arg(name: String, tpe: String) extends ArgSpec
 
@@ -24,6 +29,22 @@ object APIModel {
   }
 
   object helpAbstractions {
+    def apiHelp[API_T <: API_Spec](api: API_T, short: String, long: String): Help[API_T] = {
+      def apiCommandsList = api.allCommands.map { case (id: String, command: API_Command) => id}
+      def subApiList = api.allSubAPIs.map { case (id: String, sub: API_Spec) => id}
+
+      Help(api,
+        s"""$short
+           |
+           |List of API commands: ${apiCommandsList.mkString(", ")}
+           |List of sub-APIs: ${subApiList.mkString(", ")}
+           |
+           |$long
+         """.stripMargin.stripLineEnd
+      )
+
+    }
+
 
     // unifies the description of an API command which already provides the command signatures
     def consoleCmdHelp[CmdType <: API_Command](apicmd: CmdType, headerDescription: String, afterSignatures: String): Help[CmdType] = {
@@ -35,11 +56,11 @@ object APIModel {
 
       val signaturePart = signatureParts.mkString("\n")
       val fulltext = s"""
-                        |$headerDescription
-                        |
+       |$headerDescription
+       |
        |Signatures:
-                        |$signaturePart
-                        |
+       |$signaturePart
+       |
        |$afterSignatures
      """.stripMargin.stripLineEnd
 
