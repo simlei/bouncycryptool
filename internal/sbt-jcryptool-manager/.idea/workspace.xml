@@ -52,7 +52,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TargetplatformToMavenAPI.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TargetplatformToMavenAPI.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/org/jcryptool/projectapi/TargetplatformToMavenAPI.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="668">
@@ -62,25 +62,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JCTCoreTychoBuildAPI.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/org/jcryptool/projectapi/JCTCoreTychoBuildAPI.scala">
+      <file leaf-file-name="ExternalHelp.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/org/jcryptool/consolehelp/ExternalHelp.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+            <state relative-caret-position="125">
+              <caret line="153" column="86" lean-forward="false" selection-start-line="153" selection-start-column="86" selection-end-line="153" selection-end-column="86" />
               <folding>
-                <marker date="1515383110326" expanded="true" signature="3060:3067" ph="{...}" />
-                <marker date="1515383110326" expanded="true" signature="3100:3107" ph="{...}" />
+                <element signature="e#35#84#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JCT_API.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="JCTCoreTychoBuildAPI.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/org/jcryptool/projectapi/JCTCoreTychoBuildAPI.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JCT_API.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/org/jcryptool/projectapi/JCT_API.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-15">
-              <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="28" />
-              <folding />
+            <state relative-caret-position="410">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding>
+                <element signature="e#34#74#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -225,12 +236,12 @@
         <option value="$PROJECT_DIR$/src/main/scala/de/simlei/multimanager/ConsoleProjectUtils.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/org/jcryptool/structure/JCTLayout.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/org/jcryptool/projectapi/TargetplatformToMavenAPI.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/org/jcryptool/projectapi/JCT_API.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/org/jcryptool/projectapi/JCTCoreTychoBuildAPI.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/org/jcryptool/consolehelp/ExternalHelp.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/org/jcryptool/projectapi/APIModel.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/de/simlei/multimanager/projects/flavor/package.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/de/simlei/multimanager/Utils.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/org/jcryptool/consolehelp/ExternalHelp.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/org/jcryptool/projectapi/JCT_API.scala" />
       </list>
     </option>
   </component>
@@ -500,7 +511,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3377097" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27962962" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27962962" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="sbt-shell-toolwindow" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24434718" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963924" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -673,13 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/org/jcryptool/consolehelp/ExternalHelp.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="148" column="8" lean-forward="false" selection-start-line="148" selection-start-column="8" selection-end-line="148" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/de/simlei/multimanager/ConsoleProjectUtils.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -692,17 +696,6 @@
         <state relative-caret-position="197">
           <caret line="21" column="49" lean-forward="false" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/org/jcryptool/projectapi/JCTCoreTychoBuildAPI.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
-          <folding>
-            <marker date="1515383110326" expanded="true" signature="3060:3067" ph="{...}" />
-            <marker date="1515383110326" expanded="true" signature="3100:3107" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -724,14 +717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/org/jcryptool/projectapi/JCT_API.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/org/jcryptool/structure/JCTLayout.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
@@ -745,6 +730,34 @@
         <state relative-caret-position="668">
           <caret line="105" column="31" lean-forward="false" selection-start-line="105" selection-start-column="15" selection-end-line="105" selection-end-column="31" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/org/jcryptool/consolehelp/ExternalHelp.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="153" column="86" lean-forward="false" selection-start-line="153" selection-start-column="86" selection-end-line="153" selection-end-column="86" />
+          <folding>
+            <element signature="e#35#84#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/org/jcryptool/projectapi/JCTCoreTychoBuildAPI.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/org/jcryptool/projectapi/JCT_API.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="e#34#74#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

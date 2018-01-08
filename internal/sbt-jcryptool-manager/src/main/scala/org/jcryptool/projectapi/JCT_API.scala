@@ -1,5 +1,6 @@
 package org.jcryptool.projectapi
 
+import org.jcryptool.consolehelp.HasHelp
 import org.jcryptool.projectapi.APIModel.{API_Command, API_Spec, Signature}
 import org.jcryptool.structure.JCTLayout
 

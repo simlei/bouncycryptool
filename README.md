@@ -141,7 +141,7 @@ jct.projects.bouncycryptool.projects.jctPlatformExtractor.api.onWebHostedBuild.r
 
 // build your own "weekly snapshot" of jcryptool!
 val myTargetDirectory = jct.projects.core.dir / ".." / "myWeeklyBuild"  // or just [...] = file("C:\Users\<...>")
-jct.projects.core.api.buildJCTProduct(myTargetDirectory)
+jct.projects.core.api_build.buildJCT(myTargetDirectory)
 
 ``` 
 

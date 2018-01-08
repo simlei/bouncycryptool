@@ -8,6 +8,7 @@ import sbt.io.IO
 
 // ---------- INFRASTRUCTURE CODE PART ------------
 
+
 // this trait describes how to annotate objects with help -- by giving them '.help' object members
 trait HasHelp[Helped] {
   def help: Unit // this method is called by the user and prints help to the console
