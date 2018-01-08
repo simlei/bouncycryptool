@@ -78,20 +78,25 @@ You are in a Scala console here! Everything is a Scala expression.
 That means you can actually learn something about this language here.
 It is kind of like Java, with more powerful syntax.
 
+Your main entry point will be the object "jct".
+jct.this, jct.that, jct.[...].api.command(), you get the idea.
+
+To get started:
+
 - Try evaluating pure Scala code (at the basic level it is like Java)
     e.g. scala> 4+4
          scala> println("Helloworld!")
 
 - Try working with Scala and the JCrypTool model's file structure:
     e.g. scala> jct.projects.core.dir // shows the location of the core repository
-    e.g. scala> (jct.projects.core.dir ** "*.java").get.take(20) // first 20 java files found in "core"
+    e.g. scala> (jct.projects.core.dir ** "*.java").get.take(20).foreach(println) // first 20 java files found in "core"
     e.g. scala> val helloFile = jct.projects.core.dir.getParentFile / "hello.txt"
                 IO.write(helloFile, "Hello, world!")
                 println(s"$helloFile reads: " + IO.read(helloFile))
                 IO.delete(helloFile)
 
 - Try building JCrypTool (like a weekly build)
-    e.g. scala> jct.projects.core.api.buildJCTProduct(jct.projects.core.dir / ".." / "myWeeklyBuild")
+    e.g. scala> jct.projects.core.api_build.buildJCT(jct.projects.core.dir / ".." / "myWeeklyBuild")
                 (the '/' is perfectly valid Scala code in this context for navigating folders)
 
 - Read more help and how to navigate here:
