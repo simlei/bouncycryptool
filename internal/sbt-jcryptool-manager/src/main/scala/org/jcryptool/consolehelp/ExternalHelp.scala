@@ -61,30 +61,30 @@ object ExternalHelp {
       |the class "org.jcryptool.structure.JCTLayout" in the bouncycryptool manager plugin.
       |
       |If you need help about an object, try a dot after it, press "TAB" and see if there is
-      |a ".help" entry -- the same way you found this help, probably. Tab completion and the help commands are the way
-      |to discover what this console has to offer.
+      |a ".help" entry -- the same way you found this help, probably. Tab completion and the help
+      |commands are the way to discover what this console has to offer.
       |
-      |The main projects usually have a nested "projects" variable, from where the subprojects can be reached, e.g.:
+      |The main projects usually have a nested "projects" variable, from where subprojects can be reached, e.g.:
       |> jct.projects.core
       |
-      |Many projects, like the root ("jct") and the core repository, have useful APIs to call, named "api_xyz".
-      |Look for them when using tab completion while typing. e.g.:
+      |Many projects, like the root ("jct") and the core repository, have useful APIs to call,
+      |named "api_xyz". Look for them when using tab completion while typing. e.g.:
       |> jct.projects.core.<TAB> -> "api_build" is in the list, the API to build the JCT product.
       |
-      |For example, the descriptor object and its directory for this abovementioned manager plugin, which provides
-      |this console and its help, can be reached via:
+      |For example, the descriptor object and its directory for this abovementioned manager plugin,
+      |which provides this console and its help, can be reached via:
       |> jct.projects.bouncycryptool.projects.jctManager.dir
       |
       |It is part of the bouncycryptool repository, in the subfolder /internal/sbt-jcryptool-manager,
       |but you get to see the absolute location on your machine this way.
-      |Not all projects are modelled yet, just the ones necessary for now, but this is easy to change, and easy to give
-      |them their own APIs :)
+      |Not all projects are modelled yet, just the ones necessary for now, but this is easy to change,
+      |and easy to give them their own APIs :)
       |
       |The main point for useful automations is supposed to be "jct.api". It has a ".help" member, check it out!
       |
       |As a last point, here are some shortcuts defined for you to make things faster and help you understand
-      |the structure of this console project a bit better. You can use either the identifiers on the left or on the right,
-      |the result is identical.
+      |the structure of this console project a bit better. You can use either the identifiers on the
+      |left or on the right, the result is identical.
     """.stripMargin + "\n" + ConsoleProjectUtils.printImportedVals
   )
 

@@ -29,11 +29,13 @@ all required components. Once this has been done, subsequent invocations of the 
 ## BouncyCrypTool Build shell - prerequisites
 
 You need to have installed:
+
  - [Java Development Kit version 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
- - [SBT for Windows](http://www.scala-sbt.org/1.0/docs/Installing-sbt-on-Windows.html) [SBT for Mac](http://www.scala-sbt.org/1.0/docs/Installing-sbt-on-Mac.html) [SBT for Linux](http://www.scala-sbt.org/1.0/docs/Installing-sbt-on-Linux.html)
+ - Simple Build Tool (SBT) [for Windows](http://www.scala-sbt.org/1.0/docs/Installing-sbt-on-Windows.html) [SBT for Mac](http://www.scala-sbt.org/1.0/docs/Installing-sbt-on-Mac.html) [SBT for Linux](http://www.scala-sbt.org/1.0/docs/Installing-sbt-on-Linux.html)
  - [Maven](https://maven.apache.org/download.cgi) for building JCrypTool. For windows users:
-    1) Download binary zip file & extract at installation location (e. g. <UserHome>/installations/)
-    2) [add the "bin" subfolder to your environment variables](https://maven.apache.org/guides/getting-started/windows-prerequisites.html) ("Maven in PATH").
+    1) Download binary zip file extract at an installation location (e. g. <USER_HOME>/installations/)
+    2) [Add the "bin" subfolder to your environment variables ("Maven in PATH").](https://maven.apache.org/guides/getting-started/windows-prerequisites.html)
+       (Open Windows System Control (Systemsteuerung) and enter "PATH" in the search field in the upper right of the window)
  - Git for fetching the code from github ([for Windows users, this works quite well](https://git-scm.com/download/win), but really any distribution which works in the standard "cmd" is good. Personally, I have not made the best experience with the GitHub distribution however.)
 
 ## Setting up
@@ -114,10 +116,10 @@ scala>
 
 ## Trying it out
 
-You are now all set.
+You are now all set. You should see a "scala> " prompt waiting for you to give commands to the console. 
 Unfortunately, the documentation comes to an ends for now (but not for long!)
 
-A few tips for poking around on your own:
+A few instructionary tips for poking around on your own:
 
 Try out the snippets in the welcome message first to get a feeling. 
 Many important objects have got a ".help" member - type it in to get help :)
@@ -137,7 +139,7 @@ command APIs. When you get there, these are the "crown jewels" of the console:
 
 ```
 // builds JCrypTool to the default location, takes that built product and resolves
-// and publishes it to the Scala/BouncyCrypTool world. this takes quite some time.
+// and publishes it to the Scala/BouncyCrypTool world. This takes quite some time.
 jct.api.buildResolveAndPublish()  
 
 // step 2 from the operation above, but does not require step 1 as it uses a snapshot off the web
@@ -166,6 +168,11 @@ sea of context objects which are picked up dynamically, rather than polluting th
 member to any of the objects in the console, one needs only to add another entry in the ExternalHelp.scala file. We see such extensibility
 as one of the reasons to go for Scala in the integration of the bouncycryptool library.
 
+## If you start again later...
+
+Just open your terminal, enter ``cd path/to/JCT`` from earlier (__"Setting up"__) and enter ``sbt startJCTConsole``. 
+The console should spin up, just much faster this time.
+ 
 ## Outlook for the console:
 
  * First scala-based GUI code in JCrypTool (with the Target platform extraction automation already in place now, we're almost there)
