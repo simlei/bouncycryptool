@@ -140,7 +140,7 @@ command APIs. When you get there, these are the "crown jewels" of the console:
 // and publishes it to the Scala/BouncyCrypTool world. this takes quite some time.
 jct.api.buildResolveAndPublish()  
 
-// step 2 from the operation above, requires already-built JCT product
+// step 2 from the operation above, but does not require step 1 as it uses a snapshot off the web
 val p2WebUrl = "http://simlei.github.io/jcryptool-p2/"
 jct.projects.bouncycryptool.projects.jctPlatformExtractor.api.onWebHostedBuild.resolveAndPublish(p2WebUrl) 
 
