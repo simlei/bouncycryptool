@@ -37,7 +37,7 @@ object JCTEditors extends Editors {
 
   def templateFileContent: Array[Byte] = File(FileLocator.toFileURL(OperationsPlugin.getDefault().getBundle().getEntry("/")).getFile() + "templates" + JFile.separatorChar + AbstractEditorMsg.AbstractEditorService_3).byteArray //TODO: put off: generalize JCT templates
   def templateFilePrefix: String = AbstractEditorMsg.AbstractEditorService_2
-  def templateFileExt = JCTConstants.TXT_FILE_TYPE_EXTENSION
+  def templateFileExt = JCTConstants.TXT_FILE_TYPE_EXTENSION.replaceAll(".", "")
 
   def createSampleTempFile: File = Editors.createTempOutputFile(templateFilePrefix, templateFileExt, templateFileContent)
   def createSampleBlankFile: File = Editors.createTempOutputFile(templateFilePrefix, templateFileExt)

@@ -24,10 +24,12 @@ class BouncyCrypToolPlugin extends AbstractUIPlugin {
   @throws[Exception]
   override def start(context: BundleContext): Unit = {
     super.start(context)
-    this.app = Some(new BouncyCrypToolApp(JCT_RCP))
+    println("Starting the BCT Scala app...")
+    BouncyCrypToolApp.start(JCT_RCP)
   }
   @throws[Exception]
   override def stop(context: BundleContext): Unit = {
+    BouncyCrypToolApp.stop()
     super.stop(context)
   }
   override protected def initializeImageRegistry(registry: ImageRegistry): Unit = legacyStuff.initializeImageRegistry(registry)
@@ -36,7 +38,7 @@ class BouncyCrypToolPlugin extends AbstractUIPlugin {
   BouncyCrypToolPlugin.singleton = this
 }
 object BouncyCrypToolPlugin {
-  val PLUGIN_ID = "org.jcryptool.bouncycryptool.plugin"
+  val PLUGIN_ID = "org.jcryptool.bouncycryptool-plugin"
   var singleton: BouncyCrypToolPlugin = null
 }
 

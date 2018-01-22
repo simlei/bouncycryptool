@@ -22,14 +22,14 @@ object SBCLogFormat {
 
 sealed trait LogLevel extends EnumEntry {
   import LogLevel._
-}
-object LogLevel extends Enum[LogLevel] {
-  case object INFO extends LogLevel
-  case object ERROR extends LogLevel
-  val values = findValues
   def toString(lvl: LogLevel): String = lvl match {
     case INFO => "[info]"
     case ERROR => "[error]"
     case omega => "[${omega.toString}]"
   }
+}
+object LogLevel extends Enum[LogLevel] {
+  case object INFO extends LogLevel
+  case object ERROR extends LogLevel
+  val values = findValues
 }

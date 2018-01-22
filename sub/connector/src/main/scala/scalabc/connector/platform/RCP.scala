@@ -3,7 +3,7 @@ package scalabc.connector.platform
 import scalabc.connector.platform.io._
 
 
-trait RCP {
+trait RCP { //TODO: put off: rcp extraction: name it "Environment"
   def editors: Editors
   def io: SBCIO = new SBCIO {
     override def in = System.in

@@ -60,6 +60,7 @@ object Dependencies {
 
     val helpers = Seq(
       "com.typesafe.scala-logging" %% "scala-logging" % version.scalalogging,
+      "ch.qos.logback" % "logback-classic" % "1.1.3",
       "com.beachape" %% "enumeratum" % version.enumeratum,
       "com.github.pathikrit" %% "better-files" % version.betterfiles
     )

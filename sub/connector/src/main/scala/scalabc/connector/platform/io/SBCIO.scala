@@ -17,7 +17,7 @@ trait SBCLogger {
 }
 object SBCLogger {
   object fallback extends SBCLogger {
-    val slf4jLogger = Logger[SBCLogger]
+    val slf4jLogger = Logger("BCT-default")
     override def log(item: SBCLogItem, requestDisplay: Boolean): Unit = item match {
       case SBCLogItemMsg(msg) => slf4jLogger.info(msg)
       case SBCLogItemError(msg, Some(thr)) => slf4jLogger.error(msg, thr)

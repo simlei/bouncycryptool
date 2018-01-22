@@ -138,7 +138,7 @@ The first snippet -- jct.help -- leads to more identifiers to try out, especiall
 command APIs. When you get there, these are the "crown jewels" of the console: 
 
 ```
-// builds JCrypTool to the default location, takes that built product and resolves
+// builds JCrypTool to the defaullocation, takes that built product and resolves
 // and publishes it to the Scala/BouncyCrypTool world. This takes quite some time.
 jct.api.buildResolveAndPublish()  
 

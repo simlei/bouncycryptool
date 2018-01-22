@@ -3,9 +3,10 @@ package scalabc.connector.platform
 
 import java.nio.charset.Charset
 import java.nio.file.Path
-
 import java.io.{ByteArrayInputStream, InputStream, File => JFile}
+
 import better.files._
+import org.jcryptool.core.operations.editors.AbstractEditorService
 
 import scala.util.Try
 
@@ -43,7 +44,7 @@ object Editors {
     sys.error("too many files in temporary directory already. Please clean them up.")
   }
   def createTempOutputFile(name: String, extension: String, content: Array[Byte] = Array(), baseDir: File = defaultTempDir): File = {
-    createTempOutputFile(nextFile(baseDir, name, extension), content)
+    createTempOutputFile(nextFile(baseDir, name, extension), content) //TODO: later: check that JCT editor can't save to temp directory
   }
   def createTempOutputFile(file: File, content: Array[Byte]): File = {
     file.writeByteArray(content)
