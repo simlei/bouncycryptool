@@ -59,23 +59,23 @@ object TargetplatformToMavenAPI {
   val localSrc = Src("localSource", "File")
 
 
-  abstract class ApiCmd[ArgT](val cmdName: String, val remoteCmdName: String, val src: Src) extends API_Command {
+  abstract class TargetResolveApiCmd[ArgT](val cmdName: String, val remoteCmdName: String, val src: Src) extends API_Command {
     override def signatures: Map[Signature, String] = Map(
       Signature(cmdName, Seq()) -> s"uses the default ${src.description} for JCrypTool",
       Signature(cmdName, Seq(src)) -> s"specify a custom ${src.description}"
     )
-    def apply(source: ArgT): Unit = cmdExecutor(argToCmdArg(source))
+    def apply(source: ArgT): Unit = cmdExecutor(makeSbtCmd(argToCmdArg(source)))
     def apply(): Unit = apply(defaultValue)
-    def makeSbtCmd(arg: String) = s"${this.remoteCmdName} ${this.src.name} $arg"
+    def makeSbtCmd(arg: String) = s"${this.remoteCmdName} ${this.src.remoteName} $arg"
 
     def defaultValue: ArgT
     def argToCmdArg(arg: ArgT): String
     def cmdExecutor(cmdString: String): Unit
   }
-  abstract class LocalResolveCmd extends ApiCmd[File]("resolveAndPublish", "publish-jct-local-maven", localSrc)
-  abstract class LocalTestCmd extends ApiCmd[File]("testResolve", "test-platform", localSrc)
-  abstract class WebResolveCmd extends ApiCmd[String]("resolveAndPublish", "publish-jct-local-maven", webSrc)
-  abstract class WebTestCmd extends ApiCmd[String]("testResolve", "test-platform", webSrc)
+  abstract class LocalResolveCmd extends TargetResolveApiCmd[File]("resolveAndPublish", "publish-jct-local-maven", localSrc)
+  abstract class LocalTestCmd extends TargetResolveApiCmd[File]("testResolve", "test-platform", localSrc)
+  abstract class WebResolveCmd extends TargetResolveApiCmd[String]("resolveAndPublish", "publish-jct-local-maven", webSrc)
+  abstract class WebTestCmd extends TargetResolveApiCmd[String]("testResolve", "test-platform", webSrc)
 
 }
 

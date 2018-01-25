@@ -11,7 +11,6 @@ import scalabc.connector.platform.{Editors, RCP}
 class RCPTests extends FlatSpec {
 
   "RCP Connection" should "work in theory" ignore {
-    scalabc.connector.connect("Test_id", null)
   }
 }
 

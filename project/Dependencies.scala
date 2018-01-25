@@ -2,6 +2,7 @@ import sbt._
 
 object Dependencies {
 
+
   lazy val version = new {
     val scalaTest = "3.0.1"
     val scalaCheck = "1.13.4"
@@ -113,22 +114,7 @@ object Dependencies {
   val cryptoDependencies: Seq[ModuleID] = testlibs ++ helpers ++ fctHelpers ++ bouncycastle
   val toolsDependencies: Seq[ModuleID] = testlibs ++ helpers ++ fctHelpers ++ reactiveAndUI ++ optics ++ ammonite
 
-  val uiP2Bundles: Seq[String] = Seq(
-    "org.eclipse.ui",
-    "org.eclipse.swt",
-    "org.eclipse.jface"
-  )
-
-  val connectorP2Bundles:Seq[String] = Seq(
-    "org.eclipse.ui",
-    "org.eclipse.core.runtime",
-    "org.jcryptool.core.operations",
-    "org.jcryptool.core.util",
-    "org.eclipse.ui.workbench",
-    "org.jcryptool.editor.text",
-    "net.sourceforge.ehep"
-  )
-
+  val jctPlatformDependency: ModuleID = "org.jcryptool" %% "bouncycryptool-platform" % "0.1.0-SNAPSHOT" classifier("assembly")
   //TODO: add enumeratum
 
 }

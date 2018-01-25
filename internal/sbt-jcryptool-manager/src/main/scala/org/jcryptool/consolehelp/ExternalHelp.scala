@@ -2,7 +2,7 @@ package org.jcryptool.consolehelp
 
 import de.simlei.multimanager.ConsoleProjectUtils
 import org.jcryptool.projectapi.APIModel.{API_Command, helpAbstractions}
-import org.jcryptool.projectapi.{JCTCoreTychoBuildAPI, JCT_API, TargetplatformToMavenAPI}
+import org.jcryptool.projectapi.{ConnectorJCTPluginAPI, JCTCoreTychoBuildAPI, JCT_API, TargetplatformToMavenAPI}
 import org.jcryptool.structure.JCTLayout
 import sbt.io.IO
 
@@ -189,6 +189,12 @@ This may fail if you don't have an active internet connection. Also, the web-hos
     helpAbstractions.apiHelp(mvnTychoApi,
     "API for the JCT product build, in jct.projects.core",
       "Build JCT to the default directory, or to one of your liking. Make your own weekly build!"
+    )
+
+  implicit def connectorApi(api: ConnectorJCTPluginAPI) =
+    helpAbstractions.apiHelp(api,
+      "API for the BCT connector plugin in jct.projects.core",
+      "There is a single command to automate the retrieval of BCT binaries from local and remote maven repositories"
     )
 
   implicit def jctApi(api: JCT_API) =

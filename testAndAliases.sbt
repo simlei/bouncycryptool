@@ -30,8 +30,7 @@ val cmdTestsNoAmm = testWithoutCmd("*", tagUI, tagAmmIO)
 // === OTHERS
 
 val cmdCleanAll = "; clean ; test:clean"
-val cmdPublishToJCT = "; assemblyAndExport"
-val cmdPublishToJCTAndUpdateProj = "; assemblyAndExport; eclipse"
+val cmdPublishToJCT = "; compile; publishM2; inJCTConsole api_bctPlugin.updatePlugin()"
 val cmdFullrun = cmdCleanAll + cmdPublishToJCT
 
 val aliases =
@@ -44,11 +43,10 @@ val aliases =
   ) ++
     Map(
       "cleanAll" -> cmdCleanAll,
-      "publishJCT" -> ("; compile; " + cmdPublishToJCT),
-      "publishJCTUpdateProj" -> ("; compile; " + cmdPublishToJCTAndUpdateProj),
-      "fullrun" -> (cmdCleanAll + cmdTestsPure + cmdPublishToJCTAndUpdateProj),
-      "fullrun_interactive" -> (cmdCleanAll + testOnlyCmd("*") + cmdPublishToJCTAndUpdateProj), // LATER: UI tests currently not possible, kills sbt...
-      "fullrun_sbtinteractive" -> (cmdCleanAll + testWithoutCmd("*", tagAmmIO) + cmdPublishToJCTAndUpdateProj) // LATER: UI tests currently not possible, kills sbt...
+      "publishToJCT" -> ("; compile; " + cmdPublishToJCT),
+      "fullrun" -> (cmdCleanAll + cmdTestsPure + cmdPublishToJCT),
+      "fullrun_interactive" -> (cmdCleanAll + testOnlyCmd("*") + cmdPublishToJCT), // LATER: UI tests currently not possible, kills sbt...
+      "fullrun_sbtinteractive" -> (cmdCleanAll + testWithoutCmd("*", tagAmmIO) + cmdPublishToJCT) // LATER: UI tests currently not possible, kills sbt...
 
     )
 

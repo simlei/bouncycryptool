@@ -26,6 +26,6 @@ package object structure {
     override final def subPath = subfolderName
   }
 
-  trait ScalaToJCTConnectorPlugin extends JCTProj with JCTOrdinarySubProject with EclipsePluginProject with SBTProject
+  trait ScalaToJCTConnectorPlugin extends JCTProj with JCTCoreRepo.SubProject with EclipsePluginProject with SBTProject
 
 }

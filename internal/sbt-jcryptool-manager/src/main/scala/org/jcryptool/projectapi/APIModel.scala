@@ -28,6 +28,13 @@ object APIModel {
     def signatures: Map[Signature, String]
   }
 
+  class ZeroArgAPICmd(val cmdName: String, descr: String, functionality: () => Unit) extends API_Command {
+    override def signatures: Map[Signature, String] = Map(
+      Signature.of(cmdName) -> descr
+    )
+    def apply(): Unit = functionality()
+  }
+
   object helpAbstractions {
     def apiHelp[API_T <: API_Spec](api: API_T, short: String, long: String): Help[API_T] = {
       def apiCommandsList = api.allCommands.map { case (id: String, command: API_Command) => id}
