@@ -34,7 +34,7 @@ case class JCTCoreRepo(dir: File, jctLayout: JCTLayout) extends JCTMainProj {
     object bctConnector extends ScalaToJCTConnectorPlugin with CoreSubProject {
       def api: ConnectorJCTPluginAPI = ConnectorJCTPluginAPIImpl(this)
       override def subfolderName: String = "org.jcryptool.bouncycryptool.plugin"
-      override def projectName: String = "bouncycryptool-plugin"
+      override def projectName: String = "bouncycryptool.plugin"
     }
   }
 
