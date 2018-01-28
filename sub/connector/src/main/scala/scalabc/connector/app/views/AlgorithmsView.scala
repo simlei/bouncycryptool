@@ -9,4 +9,5 @@ object AlgorithmsView {
   val ID = "org.jcryptool.bouncycryptool.plugin.AlgorithmsView"
 }
 class AlgorithmsView() extends
-  RCPView(BouncyCrypToolApp.services.coats.editorPlaygroundCoat)
+  RCPView(BouncyCrypToolApp.services.coats.algoViewCoat)
+

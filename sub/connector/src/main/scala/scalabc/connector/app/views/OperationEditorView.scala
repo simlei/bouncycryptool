@@ -57,9 +57,10 @@ class OperationEditorView()
     lblMain.setText("Enter a command: ")
     textCmd = new Text(pageComp, SWT.NONE)
     runBtn = new Button(pageComp, SWT.PUSH)
+    runBtn.setText("Click me!")
     runBtn.addSelectionListener(new SelectionAdapter() {
       override def widgetSelected(e: SelectionEvent): Unit = {
-        BouncyCrypToolApp.bct.services.bcOps.sudoExecuteThrowback("Helloworld from RCP JScalaava, the one with new-timey syntax!")
+        BouncyCrypToolApp.bct.services.bcOps.sudoExecuteThrowback("Look, I can write JCT Editors.\n" + textCmd.getText)
       }
     })
     contributeToActionBars()

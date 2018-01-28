@@ -16,6 +16,7 @@ object Dependencies {
     val scalalogging = "3.7.2"
     val enumeratum = "1.5.12"
     val betterfiles = "3.2.0"
+    val javacompat = "0.8.0"
 
     val eff = "4.6.0"
     val sourcecode = "0.1.4"
@@ -24,7 +25,7 @@ object Dependencies {
     val refined = "0.8.4"
     val attoparser = "0.6.1-M1"
 
-    val bouncycastle = "1.58"
+    val bouncycastle = "1.59"
     val ammonite = "1.0.3"
     val durianswt = "3.0.0.BETA2"
 
@@ -64,7 +65,8 @@ object Dependencies {
       "com.typesafe.scala-logging" %% "scala-logging" % version.scalalogging,
       "ch.qos.logback" % "logback-classic" % "1.1.3",
       "com.beachape" %% "enumeratum" % version.enumeratum,
-      "com.github.pathikrit" %% "better-files" % version.betterfiles
+      "com.github.pathikrit" %% "better-files" % version.betterfiles,
+      "org.scala-lang.modules" % "scala-java8-compat_2.12" % version.javacompat
     )
 
     val fctHelpers = Seq(

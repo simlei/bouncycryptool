@@ -10,7 +10,8 @@ import scalabc.connector.platform.{Editors, RCP}
 
 class RCPTests extends FlatSpec {
 
-  "RCP Connection" should "work in theory" ignore {
+  "RCP Connection" should "work in theory" in {
+    println("Here we should set up a facsimile / mocked JCT RCP connection and test basic functionality. Coming soon.")
   }
 }
 

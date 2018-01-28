@@ -28,6 +28,7 @@
         <JAVADOC />
         <SOURCES>
           <root url="jar://$USER_HOME$/.ivy2/local/org.jcryptool/bouncycryptool-platform_2.12/1.0.0-SNAPSHOT/srcs/bouncycryptool-platform_2.12-sources.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/jcryptool/bouncycryptool-platform_2.12/0.1.0-SNAPSHOT/bouncycryptool-platform_2.12-0.1.0-SNAPSHOT-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -38,9 +39,6 @@
     <orderEntry type="library" name="sbt: com.diffplug.durian:durian-rx:3.0.0.BETA2:jar" level="project" />
     <orderEntry type="library" name="sbt: com.diffplug.durian:durian-swt:3.0.0.BETA2:jar" level="project" />
     <orderEntry type="library" name="sbt: com.github.javaparser:javaparser-core:3.2.5:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.github.julien-truffaut:monocle-core_2.12:1.5.0-cats-M1:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.github.julien-truffaut:monocle-macro_2.12:1.5.0-cats-M1:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.github.julien-truffaut:newts-core_2.12:0.3.0-MF-2:jar" level="project" />
     <orderEntry type="library" name="sbt: com.github.pathikrit:better-files_2.12:3.2.0:jar" level="project" />
     <orderEntry type="library" name="sbt: com.github.scopt:scopt_2.12:3.5.0:jar" level="project" />
     <orderEntry type="library" name="sbt: com.lihaoyi:derive_2.12:0.4.4:jar" level="project" />
@@ -66,12 +64,6 @@
     <orderEntry type="library" name="sbt: org.scalaz:scalaz-effect_2.12:7.2.13:jar" level="project" />
     <orderEntry type="library" name="sbt: org.slf4j:slf4j-api:1.7.25:jar" level="project" />
     <orderEntry type="library" name="sbt: org.spire-math:jawn-parser_2.12:0.10.3:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.typelevel:cats-core_2.12:1.0.0-MF:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.typelevel:cats-free_2.12:1.0.0-MF:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.typelevel:cats-kernel_2.12:1.0.0-MF:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.typelevel:cats-macros_2.12:1.0.0-MF:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.typelevel:machinist_2.12:0.6.1:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.typelevel:macro-compat_2.12:1.1.1:jar" level="project" />
     <orderEntry type="library" name="sbt: com.lihaoyi:ammonite-compiler_2.12.4:1.0.3:jar" level="project" />
     <orderEntry type="library" name="sbt: com.lihaoyi:ammonite-ops_2.12:1.0.3:jar" level="project" />
     <orderEntry type="library" name="sbt: com.lihaoyi:ammonite-repl_2.12.4:1.0.3:jar" level="project" />

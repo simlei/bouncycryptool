@@ -1,5 +1,5 @@
 import sbt.{Resolver, _}
-import sbt.Keys._
+import sbt.Keys.{libraryDependencies, _}
 import org.jcryptool.manager.JCrypToolManager.autoImport._
 
 object Settings {
@@ -31,7 +31,9 @@ object Settings {
 
   lazy val cryptoSettings: Seq[Setting[_]] = projectsSettings ++ Seq(
     name := "bouncycryptool.crypto",
-    libraryDependencies ++= Dependencies.cryptoDependencies)
+    libraryDependencies ++= Dependencies.cryptoDependencies,
+    libraryDependencies += Dependencies.jctPlatformDependency //TODO: integrate old java code properly and remove this dependency from crypto
+  )
 
   lazy val uiSettings: Seq[Setting[_]] = projectsSettings ++ Seq(
     name := "simlei.ui",
