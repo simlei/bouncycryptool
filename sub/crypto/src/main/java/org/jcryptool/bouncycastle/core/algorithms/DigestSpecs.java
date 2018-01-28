@@ -14,7 +14,6 @@ public enum DigestSpecs {
 	SHA384(DigestSpecs.makeSpec("SHA384", SHA384Digest.class)),
 	SHA512(DigestSpecs.makeSpec("SHA512", SHA512Digest.class)),
 	MD2(DigestSpecs.makeSpec("MD2", MD2Digest.class)),
-	MD4(DigestSpecs.makeSpec("MD4", MD4Digest.class)),
 	MD2Digest(DigestSpecs.makeSpec("MD5", MD5Digest.class)),
 	MD5(DigestSpecs.makeSpec("RipeMD128", RIPEMD128Digest.class)),
 	RipeMD160(DigestSpecs.makeSpec("RipeMD160", RIPEMD160Digest.class)),
@@ -33,9 +32,7 @@ public enum DigestSpecs {
 		return new DigestSpec(engineclass, id_name);
 	}
 
-
-
-
-
-
 }
+
+
+// TODO: "forgotten to add" as per tutorial - MD4(DigestSpecs.makeSpec("MD4", MD4Digest.class)),

@@ -52,8 +52,7 @@ One of the most simple workflows in open source is to change code where you know
 
 Without going into too much detail at this stage of the project, one toy project could be to add a Digest specification to the List of Digests that BouncyCrypTool knows. For a digest, you need only know the Bouncy Castle implementor class in most cases.
 
-How about that! We have implemented the DigestSpec for many algorithms, i.a. Whirlpool, SHA1 and MD5, but we forgot MD4! You can see that this is the case by looking at the ``DigestSpecs.java`` file in a subpath of the ``sub/crypto`` module of BouncyCrypTool: 
-[DigestSpec.java](https://github.com/simlei/bouncycryptool/blob/develop/sub/crypto/src/main/java/org/jcryptool/bouncycastle/core/algorithms/DigestSpecs.java)
+How about that! We have implemented the DigestSpec for many algorithms, i.a. Whirlpool, SHA1 and MD5, but we forgot MD4! You can see that this is the case by looking at the ``DigestSpecs.java`` file in a subpath of the ``sub/crypto`` module of BouncyCrypTool: [DigestSpec.java](https://github.com/simlei/bouncycryptool/blob/develop/sub/crypto/src/main/java/org/jcryptool/bouncycastle/core/algorithms/DigestSpecs.java)
 
 You can improve our list of specifications by simply adding this item to the specs list in the file in your local clone:
 
