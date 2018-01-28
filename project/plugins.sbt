@@ -35,3 +35,6 @@ lazy val root = (project in file(".")) dependsOn jctPlugin
 //addSbtPlugin("org.my-org" % "unmanaged-sbt-plugin" % "0.0.1"
 //  from "file:///./lib/unmanaged-sbt-plugin-0.0.1.jar")
 //
+
+addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "2.0")
+addSbtPlugin("com.jsuereth" % "sbt-pgp" % "1.1.0")

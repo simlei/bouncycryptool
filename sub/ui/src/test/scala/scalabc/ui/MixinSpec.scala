@@ -29,14 +29,14 @@ trait Buffer extends TestSuiteMixin { this: TestSuite =>
 
 class MixinSpec extends FlatSpec with Builder with Buffer {
 
-  "Testing" should "be easy" ignore {
+  "This test" should "demonstrate how to mix in shared BouncyCrypTool resources" in {
     builder.append("easy!")
     assert(builder.toString === "ScalaTest is easy!")
     assert(buffer.isEmpty)
     buffer += "sweet"
   }
 
-  it should "be fun" ignore {
+  it should "work this way in any followong test, it's great!" in {
     builder.append("fun!")
     assert(builder.toString === "ScalaTest is fun!")
     assert(buffer.isEmpty)

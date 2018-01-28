@@ -38,7 +38,7 @@ class BouncyCrypToolPlugin extends AbstractUIPlugin {
   BouncyCrypToolPlugin.singleton = this
 }
 object BouncyCrypToolPlugin {
-  val PLUGIN_ID = "org.jcryptool.bouncycryptool-plugin"
+  val PLUGIN_ID = "org.jcryptool.bouncycryptool.plugin"
   var singleton: BouncyCrypToolPlugin = null
 }
 

@@ -10,12 +10,13 @@ import org.jcryptool.structure.p2._
 import de.simlei.multimanager.projects.flavor.SBTProject
 import org.jcryptool.projectapi.{ConnectorJCTPluginAPIImpl, JCTCoreTychoBuildAPIImpl, TargetplatformToMavenAPI, _}
 import de.simlei.multimanager.misc.fs._
+import org.jcryptool.structure.JCTCoreRepo.SubProject
 
 
 /*
 Models the JCrypTool core repository
  */
-case class JCTCoreRepo(dir: File) extends JCTMainProj {
+case class JCTCoreRepo(dir: File, jctLayout: JCTLayout) extends JCTMainProj {
 
   val api_build: JCTCoreTychoBuildAPI = JCTCoreTychoBuildAPIImpl(this)
 
@@ -24,21 +25,26 @@ case class JCTCoreRepo(dir: File) extends JCTMainProj {
   object projects extends FSEnsemble {
     override def fsEntries: Seq[FSPresence] = super.fsEntries ++ Seq(releng, product) //TODO: weekend: include, bctConnector)
 
-    object releng extends JCTCoreOrdinarySubProject with MavenProject {
+    object releng extends CoreSubProject with MavenProject {
       override def subfolderName: String = "org.jcryptool.releng"
     }
-    object product extends JCTCoreOrdinarySubProject with MavenProject {
+    object product extends CoreSubProject with MavenProject {
       override def subfolderName: String = "org.jcryptool.product"
     }
-    object bctConnector extends ScalaToJCTConnectorPlugin with JCTCoreOrdinarySubProject {
+    object bctConnector extends ScalaToJCTConnectorPlugin with CoreSubProject {
       def api: ConnectorJCTPluginAPI = ConnectorJCTPluginAPIImpl(this)
       override def subfolderName: String = "org.jcryptool.bouncycryptool.plugin"
-      override def projectName: String = "bouncycryptool-plugin"
+      override def projectName: String = "bouncycryptool.plugin"
     }
   }
 
-  trait JCTCoreOrdinarySubProject extends JCTOrdinarySubProject {
-    override def jctMetaProj: JCTCoreRepo = JCTCoreRepo.this
+  trait CoreSubProject extends SubProject{
+    override def jctMetaProj = JCTCoreRepo.this
+  }
+}
+object JCTCoreRepo {
+  trait SubProject extends JCTOrdinarySubProject {
+    override def jctMetaProj: JCTCoreRepo
   }
 }
 
@@ -53,7 +59,7 @@ case class JCTCryptoRepo(dir: File) extends JCTMainProj {
 /*
 Models the JCrypTool BouncyCryptool repository
  */
-case class BouncyCryptoolRepo(dir: File, jctLayout: JCTLayout) extends JCTMainProj {
+case class BouncyCryptoolRepo(dir: File, jctLayout: JCTLayout, extractedState: Extracted) extends JCTMainProj {
   import BouncyCryptoolRepo._
 
   override def fsEntries: Seq[FSPresence] = super.fsEntries ++ Seq(projects, files)
@@ -71,9 +77,6 @@ case class BouncyCryptoolRepo(dir: File, jctLayout: JCTLayout) extends JCTMainPr
     }
     object jctPlatformExtractor extends BCTSubProject {
       val api: TargetplatformToMavenAPI = TargetplatformToMavenAPIImpl(this)
-      object bct_api_sbt_internal {
-        def dependency: ModuleID = "org.jcryptool" %% "bouncycryptool-platform" % "1.0.0-SNAPSHOT" classifier("assembly")
-      }
       override def subPath: String = "internal/org.jcryptool.bouncycryptool.platform"
       override def projectName: String = "bouncycryptool-platform"
     }
@@ -95,13 +98,13 @@ case class BouncyCryptoolRepo(dir: File, jctLayout: JCTLayout) extends JCTMainPr
 }
 
 
-case class JCTLayout(bouncyCrypToolHome: File) extends FSEnsemble {
+case class JCTLayout(bouncyCrypToolHome: File, bctExtracted: Extracted) extends FSEnsemble {
 
   override def fsEntries: Seq[FSPresence] = super.fsEntries :+ projects
 
   object projects extends FSEnsemble  {
     override def fsEntries: Seq[FSPresence] = super.fsEntries ++ Seq(bouncycryptool,core,crypto)
-    val bouncycryptool: BouncyCryptoolRepo = new BouncyCryptoolRepo(bouncyCrypToolHome, JCTLayout.this)
+    val bouncycryptool: BouncyCryptoolRepo = new BouncyCryptoolRepo(bouncyCrypToolHome, JCTLayout.this, bctExtracted)
     val core: JCTCoreRepo = specs.core.findPresenceOrBail()
     val crypto: JCTCryptoRepo = specs.crypto.findPresenceOrBail()
   }
@@ -113,10 +116,10 @@ case class JCTLayout(bouncyCrypToolHome: File) extends FSEnsemble {
   val gitClonedUpdatesite: Option[GithubPagesUpdateSiteClone] = specs.githubPagesUpdatesiteClone.optionalVerifiedPresence()
 
   object specs {
-    val core: SubpathSpec[JCTCoreRepo] = SubpathSpec(
+    val core: ChildPatternSpec[JCTCoreRepo] = ChildPatternSpec(
       searchRoot = bouncyCrypToolHome.getParentFile,
-      subpath = "core",
-      presenceConstructor = JCTCoreRepo(_)
+      childPattern = "*core",
+      presenceConstructor = JCTCoreRepo(_, JCTLayout.this)
     )
     val crypto: SubpathSpec[JCTCryptoRepo] = SubpathSpec(
       searchRoot = bouncyCrypToolHome.getParentFile,

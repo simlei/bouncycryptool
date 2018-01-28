@@ -81,10 +81,10 @@ object JCTTargetManager extends AutoPlugin {
       Seq("osgiResolve", "assembly")))
 
     val publishLocalCommand = Command("publish-jct-local-maven")(configParser)(configActionAndThen(
-      Seq("osgiResolve", "compile", "publishLocal")))
+      Seq("osgiResolve", "compile", "publishM2")))
 
     val publishGlobalCmd = Command("publish-jct-global-maven")(configParser)(configActionAndThen(
-      Seq("osgiResolve", "compile", "publishM2")));
+      Seq("osgiResolve", "compile", "publishM2"))); //TODO: set up maven publishing
 
 //    object p2 {
 //      val setBundleDependencies: Command = {

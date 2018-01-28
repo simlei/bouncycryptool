@@ -2,7 +2,7 @@ import org.scalatest.FlatSpec
 
 class LogicTests extends FlatSpec {
 
-  "ADT structure 1" should "behave" in {
+  "A Scala Abstract Datatype structure " should "behave orderly" in {
     trait TA
     trait TAB extends TA
     trait TAC extends TA
@@ -15,7 +15,7 @@ class LogicTests extends FlatSpec {
     case class CBY(s: String)
   }
 
-  it should "produce NoSuchElementException when head is invoked" in {
+  it should "produce NoSuchElementException when 'head' is invoked" in {
     assertThrows[NoSuchElementException] {
       Set.empty.head
     }

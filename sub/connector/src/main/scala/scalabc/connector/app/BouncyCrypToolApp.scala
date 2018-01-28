@@ -23,7 +23,7 @@ trait Services {
 }
 
 trait Coats {
-  def editorPlaygroundCoat: Coat
+  def algoViewCoat: Coat
 }
 
 class BouncyCrypToolApp(override val rcp: RCP) extends AppInterface {
@@ -64,5 +64,5 @@ case class BCTServices() extends Services {
 }
 
 case class BCTCoats() extends Coats {
-  override def editorPlaygroundCoat: Coat = Testcoat1
+  override def algoViewCoat: Coat = AlgorithmViewCoat
 }

@@ -35,7 +35,7 @@ case class JCT_API_Implementation(jctLayout: JCTLayout) extends JCT_API {
   override def buildResolveAndPublish: BuildAndResolveToBouncyCryptoolCmd = new BuildAndResolveToBouncyCryptoolCmd {
     override def apply(): Unit = {
       api_core_build.buildJCT()
-      api_platformExtractor.onLocalBuild.testResolve()
+      api_platformExtractor.onLocalBuild.resolveAndPublish()
     }
   }
 }

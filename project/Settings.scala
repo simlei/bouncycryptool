@@ -1,5 +1,5 @@
-import sbt._
-import sbt.Keys._
+import sbt.{Resolver, _}
+import sbt.Keys.{libraryDependencies, _}
 import org.jcryptool.manager.JCrypToolManager.autoImport._
 
 object Settings {
@@ -13,7 +13,8 @@ object Settings {
       publishMavenStyle := true,
       scalacOptions += "-Yrangepos",
       scalacOptions += "-Ypartial-unification",
-      addCompilerPlugin("org.scalamacros" %% "paradise" % "2.1.0" cross CrossVersion.patch)
+      addCompilerPlugin("org.scalamacros" %% "paradise" % "2.1.0" cross CrossVersion.patch),
+      resolvers += Resolver.mavenLocal
     )
 
   // ==== projects ================================================
@@ -25,17 +26,19 @@ object Settings {
   lazy val connectorSettings: Seq[Setting[_]] = projectsSettings ++ Seq(
     name := "bouncycryptool.connector",
     libraryDependencies ++= Dependencies.connectorDependencies,
-    libraryDependencies += bctTargetPlatformDependency.value
+    libraryDependencies += Dependencies.jctPlatformDependency
   )
 
   lazy val cryptoSettings: Seq[Setting[_]] = projectsSettings ++ Seq(
     name := "bouncycryptool.crypto",
-    libraryDependencies ++= Dependencies.cryptoDependencies)
+    libraryDependencies ++= Dependencies.cryptoDependencies,
+    libraryDependencies += Dependencies.jctPlatformDependency //TODO: integrate old java code properly and remove this dependency from crypto
+  )
 
   lazy val uiSettings: Seq[Setting[_]] = projectsSettings ++ Seq(
     name := "simlei.ui",
     libraryDependencies ++= Dependencies.uiDependencies,
-    libraryDependencies += bctTargetPlatformDependency.value
+    libraryDependencies += Dependencies.jctPlatformDependency
   )
 
   lazy val logicSettings: Seq[Setting[_]] = projectsSettings ++ Seq(
