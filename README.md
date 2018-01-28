@@ -9,5 +9,5 @@ What is it, and what does it want to provide?
      * automatic generation of various of the command-line and the graphical user interface
      * ... in Scala
 
-Right now, this project is in a very early state; however, you can head over to the [Documentation for developers](pamflet/out/index.html) to look into the current state of affairs.
+Right now, this project is in a very early state; however, you can head over to the [Documentation for developers](./pamflet/out/index.html) to look into the current state of affairs.
 
