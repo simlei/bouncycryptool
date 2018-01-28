@@ -4,7 +4,7 @@ import org.scalatest.FlatSpec
 
 import scala.collection.JavaConverters._
 
-class MD5DigestTest extends FlatSpec {
+class DigestRegressionTest extends FlatSpec {
 
   "The MD5 implementation of the Bouncy Castle Library" should "work to prove we define the specs the right way" in {
     val inputString = "Helloworld"
